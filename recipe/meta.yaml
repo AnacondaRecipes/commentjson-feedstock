@@ -20,7 +20,8 @@ requirements:
   host:
     - python >=3.6
     - pip
-    - patch
+    - patch    # [not win]
+    - m2-patch # [win]
   run:
     - python >=3.6
 
