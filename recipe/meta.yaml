@@ -20,7 +20,9 @@ requirements:
     - pip
   run:
     - python >=3.6
-    - lark-parser <0.8.0,>=0.7.1
+
+    # Relaxed constraint: https://github.com/vaidik/commentjson/issues/51
+    - lark-parser >=0.7.1
 
 test:
   imports:
