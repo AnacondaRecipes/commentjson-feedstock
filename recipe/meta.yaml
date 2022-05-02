@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 42f9f231d97d93aff3286a4dc0de39bfd91ae823d1d9eba9fa901fe0c7113dd4
+  patches:
+    - setup.py.patch
 
 build:
   noarch: python
@@ -18,9 +20,13 @@ requirements:
   host:
     - python >=3.6
     - pip
+    - patch    # [not win]
+    - m2-patch # [win]
   run:
     - python >=3.6
-    - lark-parser <0.8.0,>=0.7.1
+
+    # Relaxed constraint: https://github.com/vaidik/commentjson/issues/51
+    - lark-parser >=0.7.1
 
 test:
   imports:
